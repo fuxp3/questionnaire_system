@@ -1,0 +1,51 @@
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main form {
+    width: 400px;
+    height: 400px;
+    background-color: hsla(0, 0%, 100%, 0.7);
+    border-radius: 13px;
+    box-shadow: 4px 4px 14px 0 #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 13px;
+}
+
+main form input {
+    height: 34px;
+    width: 360px;
+    padding: 0 12px 0 12px;
+    outline: none;
+    border-radius: 6px;
+    border: 1px solid rgb(121, 121, 121);
+}
+
+main form textarea {
+    width: 360px;
+    padding: 12px;
+    outline: none;
+    border-radius: 6px;
+    border: 1px solid rgb(121, 121, 121);
+    resize: none;
+    line-height: 2em;
+    height: 10em;
+}
+
+main form button {
+    height: 34px;
+    width: 360px;
+    border-radius: 6px;
+    border: none;
+    color: #fff;
+    background-color: hsl(224, 97%, 54%);
+}
+
+main form button:hover {
+    background-color: hsl(224, 97%, 74%);
+}

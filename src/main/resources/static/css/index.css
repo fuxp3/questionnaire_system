@@ -1,0 +1,13 @@
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main section {
+    background-color: hsla(0, 0%, 100%, .8);
+    padding: 22px;
+    border-radius: 12px;
+    color: #333;
+    line-height: 3em;
+}

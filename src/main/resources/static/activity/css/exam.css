@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+html {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #eee;
+}
+
+body {
+    width: 800px;
+    min-height: 100%;
+    margin: 16px auto;
+    background-color: #fff;
+}
+
+section.basic-info {
+    background-color: hsl(224, 97%, 74%);
+    min-height: 180px;
+    padding: 12px;
+}
+
+section.basic-info h1 {
+    text-align: center;
+    font-size: 3rem;
+    line-height: 6rem;
+}
+
+section.basic-info p {
+    text-indent: 2em;
+    line-height: 2em;
+    font-size: 18px;
+}
+
+form {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: stretch;
+}
+
+form > * {
+    width: 100%;
+    margin: 12px 0;
+}
+
+form input[type=text] {
+    width: 100%;
+    height: 32px;
+    padding: 0 12px;
+}
+
+form div#gender-shell input[type=radio] {
+    margin-left: 12px;
+}
+
+form div#questionList h2 {
+    margin: 12px 0;
+}
+
+form div#questionList > div > * {
+    width: 100%;
+    height: 32px;
+    margin: 12px 0;
+}
+
+form div#questionList > div input[type=radio] {
+    margin-right: 24px;
+}
+
+form button {
+    height: 32px;
+    width: 100%;
+    border-radius: 6px;
+    border: none;
+    color: #fff;
+    background-color: hsl(224, 97%, 54%);
+}
+
+form button:hover {
+    background-color: hsl(224, 97%, 74%);
+}

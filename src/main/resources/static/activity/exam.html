@@ -1,0 +1,40 @@
+<html lang="zh-hans"><head>
+    <meta charset="UTF-8">
+    <title>调查问卷 | 关于大学生消费情况的问卷</title>
+    <link rel="stylesheet" href="css/exam.css">
+  </head>
+  <body>
+    <section class="basic-info">
+        <h1 id="title">关于大学生消费情况的问卷</h1>
+        <p id="brief">这是一份关于大学生消费的调查问卷。非常感谢您能在百忙之中抽空协助调查，您的参与对本研究能否顺利进行有重大影响，谢谢您的合作！</p>
+    </section>
+    <form method="post" action="/activity/exam.do">
+      <input type="hidden" name="acid" id="acid" value="1">
+      <div>
+        <input type="text" name="nickname" placeholder="您叫">
+      </div>
+      <div>
+        <input type="text" name="phone" placeholder="您的电话">
+      </div>
+      <div class="gender-shell">
+        您的性别
+        <label>
+          <input type="radio" name="gender" value="1"> 男
+        </label>
+        <label>
+          <input type="radio" name="gender" value="2"> 女
+        </label>
+      </div>
+      <div>
+        <input type="text" name="age" placeholder="您的年龄">
+      </div>
+      <div id="questionList">
+        <h2>调查题目</h2>
+      </div>
+      <button>提交</button>
+    </form>
+  
+    <script src="/js/util.js"></script>
+    <script src="js/exam.js"></script>
+  </body>
+</html>

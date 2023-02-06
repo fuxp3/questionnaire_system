@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+    <meta charset="UTF-8">
+    <title>调查问卷</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="css/list.css">
+</head>
+<body>
+    <aside>
+        <h1><a href="/">调查问卷</a></h1>
+        <section>
+            <h2>用户管理</h2>
+            <a href="/user/register.html">注册</a>
+            <a href="/user/login.html">登录</a>
+            <a href="/user/quit.do">退出</a>
+        </section>
+        <section>
+            <h2>题库管理</h2>
+            <a href="/question/create.html">录制题目</a>
+            <a href="/question/list.html">我的题目</a>
+        </section>
+        <section>
+            <h2>问卷管理</h2>
+            <a href="/survey/create.html">新建问卷</a>
+            <a href="/survey/list.html">我的问卷</a>
+        </section>
+        <section>
+            <h2>活动管理</h2>
+            <a href="/activity/create.html">创建活动</a>
+            <a href="/activity/list.html">我的活动</a>
+        </section>
+    </aside>
+    <main>
+        <p class="current-user">加载中 ...</p>
+        <h2>我的问卷</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>#suid</th>
+                    <th>标题</th>
+                    <th>简介</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </main>
+
+    <script src="/js/current-user.js"></script>
+    <script src="js/list.js"></script>
+</body>
+</html>

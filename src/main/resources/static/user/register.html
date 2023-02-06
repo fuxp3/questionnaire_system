@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+    <meta charset="UTF-8">
+    <title>调查问卷</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+    <aside>
+        <h1><a href="/">调查问卷</a></h1>
+        <section>
+            <h2>用户管理</h2>
+            <a href="/user/register.html">注册</a>
+            <a href="/user/login.html">登录</a>
+            <a href="/user/quit.do">退出</a>
+        </section>
+        <section>
+            <h2>题库管理</h2>
+            <a href="/question/create.html">录制题目</a>
+            <a href="/question/list.html">我退出的题目</a>
+        </section>
+        <section>
+            <h2>问卷管理</h2>
+            <a href="/survey/create.html">新建问卷</a>
+            <a href="/survey/list.html">我的问卷</a>
+        </section>
+        <section>
+            <h2>活动管理</h2>
+            <a href="/activity/create.html">创建活动</a>
+            <a href="/activity/list.html">我的活动</a>
+        </section>
+    </aside>
+    <main>
+        <form method="post" action="/user/register.do">
+            <h2>用户注册</h2>
+            <input type="text" name="username" placeholder="用户名">
+            <input type="text" name="password" placeholder="密码">
+            <button>注册</button>
+        </form>
+    </main>
+</body>
+</html>
