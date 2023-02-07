@@ -16,20 +16,20 @@ aside {
     top: 0;
     left: 0;
     bottom: 0;
-    background-color: hsl(224, 97%, 34%);
+    /*background-color: hsl(224, 97%, 34%);*/
     width: 240px;
-    text-align: center;
-    box-shadow: 5px 0 15px 0 #000;
+    /*text-align: center;*/
+    /*box-shadow: 5px 0 15px 0 #000;*/
 }
 
 aside h1 {
     font-size: 2rem;
-    line-height: 4rem;
+    line-height: 2rem;
 }
 
 aside h1 a {
     text-decoration: none;
-    color: hsl(0, 0%, 100%);
+    /*color: hsl(0, 0%, 100%);*/
 }
 
 aside section {
@@ -47,9 +47,9 @@ aside section h2 {
 
 aside section a {
     width: 100%;
-    color: hsl(0, 0%, 100%);
+    /*color: hsl(0, 0%, 100%);*/
     text-decoration: none;
-    line-height: 2.8em;
+    line-height: 2em;
 }
 
 
@@ -60,7 +60,7 @@ aside section a:hover {
 main {
     margin-left: 240px;
     width: calc(100% - 240px);
-    background-image: url(../img/cat-bg.jpg);
+    background-image: url(../img/bg.jpg);
     background-repeat: no-repeat;
     background-position: 0 0;
     background-size: cover;
