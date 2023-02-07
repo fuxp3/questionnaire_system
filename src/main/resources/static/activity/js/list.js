@@ -5,11 +5,12 @@ function render(activityList) {
 
     let tr = document.createElement('tr')
     let state;
-    if (a.state === '已结束') {
+    /*if (a.state === '已结束') {
       state = `<a href="${location.origin}/activity/detail.html?acid=${a.acid}">${a.state}</a>`
     } else {
       state = a.state
-    }
+    }*/
+    state = `<a href="${location.origin}/activity/detail.html?acid=${a.acid}">${a.state}</a>`
 
     let link = `${location.origin}/activity/exam.html?acid=${a.acid}`
     tr.innerHTML = `<td>${a.acid}</td>`
