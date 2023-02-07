@@ -40,6 +40,43 @@ public class ActivityJsonController {
         return result;
     }
 
+    @GetMapping("/exam")
+    public HashMap<String, Object> examWeChatApplet(int acid) {
+        HashMap<String, Object> result = new HashMap<>();
+        // 根据 acid 获取 activity
+        HashMap<String, Object> activity = activityService.get(acid);
+        // 判断是否在合法时间之内
+        Instant now = Instant.now();
+        System.out.println(activity);
+        if (now.compareTo((Instant)activity.get("startedAt")) < 0) {
+            // 调查还未开始
+            result.put("state", "未开始");
+            return result;
+        }
+
+        if (now.compareTo((Instant)activity.get("endedAt")) > 0) {
+            // 调查已经结束
+            result.put("state", "已结束");
+            return result;
+        }
+        // 根据 suid 获取调查信息
+        HashMap<String, Object> survey = activityService.getSurvey((int)activity.get("suid"));
+        // 根据 suid 和关系，获取题目信息
+        List<Object> questionList = activityService.getQuestionList((int)activity.get("suid"));
+
+        HashMap<String, Object> data = new HashMap<>();
+        data.put("acid", acid);
+        data.put("suid", activity.get("suid"));
+        data.put("title", survey.get("title"));
+        data.put("brief", survey.get("brief"));
+        data.put("questionList", questionList);
+
+        result.put("state", "进行中");
+        result.put("data", data);
+
+        return result;
+    }
+
     @GetMapping("/exam.json")
     public HashMap<String, Object> exam(int acid) {
         HashMap<String, Object> result = new HashMap<>();

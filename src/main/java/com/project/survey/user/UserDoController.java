@@ -5,13 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
+import java.util.Map;
 
 @Slf4j
 @Controller
@@ -39,6 +38,33 @@ public class UserDoController {
         session.setAttribute("currentUser", user);
         return "redirect:/user/login.html";
     }
+
+    @PostMapping("/login")
+    @ResponseBody
+    public Map<String,String> loginWeChatApplet(@RequestBody UserVO user, HttpSession session){
+        Map<String,String> map = new HashMap<>();
+        map.put("data",user.getUsername());
+        if(user == null || user.getUsername().equals("") || user.getPassword().equals("")){
+            log.debug("用户名或密码为空");
+            map.put("code","500");
+            map.put("msg","用户名或密码为空");
+            return map;
+        }
+
+        User dbUser = userService.login(user.getUsername(), user.getPassword());
+        log.debug("用户: {}", dbUser);
+        if (dbUser == null) {
+            map.put("code","500");
+            map.put("msg","用户名或密码错误");
+            return map;
+        }
+
+        session.setAttribute("currentUser", user);
+        map.put("code","200");
+        map.put("msg","登录成功");
+        return map;
+    }
+
 
     @PostMapping("/login.do")
     public String login(String username, String password, HttpSession session) {
