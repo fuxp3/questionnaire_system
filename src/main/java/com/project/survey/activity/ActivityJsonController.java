@@ -23,6 +23,14 @@ public class ActivityJsonController {
         this.activityService = activityService;
     }
 
+    @GetMapping("/list")
+    public HashMap<String, Object> listAll(HttpServletRequest req) {
+        HashMap<String, Object> result = new HashMap<>();
+        List<Object> list = activityService.list();
+        result.put("data", list);
+        return result;
+    }
+
     @GetMapping("/list.json")
     public HashMap<String, Object> list(HttpServletRequest req) {
         User currentUser = null;

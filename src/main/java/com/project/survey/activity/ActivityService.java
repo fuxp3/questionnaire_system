@@ -53,6 +53,45 @@ public class ActivityService {
     }
 
     @SneakyThrows
+    public List<Object> list() {
+        Date now = new Date();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
+        try (Connection c = dataSource.getConnection()) {
+            String sql = "SELECT acid, surveys.suid, title, started_at, ended_at FROM activities join surveys on activities.suid = surveys.suid order by acid";
+            try (PreparedStatement ps = c.prepareStatement(sql)) {
+                try (ResultSet rs = ps.executeQuery()) {
+                    List<Object> list = new ArrayList<>();
+                    while (rs.next()) {
+                        HashMap<String, Object> m = new HashMap<>();
+                        m.put("acid", rs.getInt("acid"));
+                        m.put("suid", rs.getInt("suid"));
+                        m.put("title", rs.getString("title"));
+                        Timestamp startedAt = rs.getTimestamp("started_at");
+                        Timestamp endedAt = rs.getTimestamp("ended_at");
+                        String state;
+                        log.info("现在时间: " + now.toInstant().toString());
+                        log.info("开始时间: " + startedAt.toInstant().toString());
+                        log.info("截至时间: " + endedAt.toInstant().toString());
+                        if (startedAt.compareTo(now) > 0) {
+                            state = "未开始";
+                        } else if (endedAt.compareTo(now) >= 0) {
+                            state = "进行中";
+                        } else {
+                            state = "已结束";
+                        }
+                        m.put("startedAt", startedAt.toLocalDateTime().format(formatter));
+                        m.put("endedAt", endedAt.toLocalDateTime().format(formatter));
+                        m.put("state", state);
+
+                        list.add(m);
+                    }
+                    return list;
+                }
+            }
+        }
+    }
+
+    @SneakyThrows
     public List<Object> list(int uid) {
         Date now = new Date();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
